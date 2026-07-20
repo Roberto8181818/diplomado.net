@@ -1,0 +1,15 @@
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\bin\Debug\net9.0\roberto-padilla.exe
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\bin\Debug\net9.0\roberto-padilla.deps.json
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\bin\Debug\net9.0\roberto-padilla.runtimeconfig.json
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\bin\Debug\net9.0\roberto-padilla.dll
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\bin\Debug\net9.0\roberto-padilla.pdb
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.AssemblyInfoInputs.cache
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.AssemblyInfo.cs
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.sourcelink.json
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.dll
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\refint\roberto-padilla.dll
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.pdb
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\roberto-padilla.genruntimeconfig.cache
+C:\Users\pc\Desktop\diplomado.net\ejercicio_01_Luhn\roberto-padilla\obj\Debug\net9.0\ref\roberto-padilla.dll
