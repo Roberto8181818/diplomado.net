@@ -1,4 +1,6 @@
 ﻿//Presentado por: Roberto Padilla
+using System.Linq.Expressions;
+
 int opc;
 
 int totalValidas = 0;
@@ -75,6 +77,12 @@ do{
 
 bool ValidarTarjeta(string numero)
 {
+    //valida que se haya recibido un número
+    if (!numero.All(char.IsDigit))
+    {
+        return false;
+    }
+
     if (numero.Length < 13 || numero.Length > 19)
         return false;
 
@@ -169,6 +177,8 @@ string IdentificarMarca(string numero)
 void ResultadoValidacionTarjeta(string numeroTarjeta)
 {
     string estado = ValidarTarjeta(numeroTarjeta) ? "VÁLIDA" : "INVÁLIDA";
+    string marca = ValidarTarjeta(numeroTarjeta) ? IdentificarMarca(numeroTarjeta) : "Desconocida";
+
     if(estado == "VÁLIDA")
         totalValidas++;
     else
@@ -176,50 +186,58 @@ void ResultadoValidacionTarjeta(string numeroTarjeta)
 
     Console.WriteLine("--------------------------------");    
     Console.WriteLine($"Número: {numeroTarjeta}");
-    Console.WriteLine($"Marca: {IdentificarMarca(numeroTarjeta)}");
+    Console.WriteLine($"Marca: {marca}");
     Console.WriteLine($"Estado: {estado}");
 }
 
 void ValidarArchivo(string ruta)
 {
-    if (!File.Exists(ruta))
-    {
-        Console.WriteLine("Archivo no encontrado.");
-        return;
+    try
+    {   
+        if (!File.Exists(ruta))
+        {
+            Console.WriteLine("Archivo no encontrado.");
+            return;
+        }
+
+        string[] lineas = File.ReadAllLines(ruta);
+
+        int validas = 0;
+        int invalidas = 0;
+
+        Console.WriteLine("--------------------------------");
+        
+        foreach (string numero in lineas)
+        {
+            bool esValida = ValidarTarjeta(numero);
+
+            string marca = esValida
+                ? IdentificarMarca(numero)
+                : "Desconocida";
+
+            Console.WriteLine($"Número: {numero}");
+            Console.WriteLine($"Marca: {marca}");
+            Console.WriteLine($"Estado: {(esValida ? "VÁLIDA" : "INVÁLIDA")}");
+            Console.WriteLine();
+
+            if (esValida)
+                validas++;
+            else
+                invalidas++;
+        }
+
+        Console.WriteLine("=== RESUMEN ===");
+        Console.WriteLine($"Válidas: {validas}");
+        Console.WriteLine($"Inválidas: {invalidas}");
+
+        totalInvalidas += invalidas;
+        totalValidas += validas;
+
     }
-
-    string[] lineas = File.ReadAllLines(ruta);
-
-    int validas = 0;
-    int invalidas = 0;
-
-    Console.WriteLine("--------------------------------");
-    
-    foreach (string numero in lineas)
+    catch(Exception ex)
     {
-        bool esValida = ValidarTarjeta(numero);
-
-        string marca = esValida
-            ? IdentificarMarca(numero)
-            : "Desconocida";
-
-        Console.WriteLine($"Número: {numero}");
-        Console.WriteLine($"Marca: {marca}");
-        Console.WriteLine($"Estado: {(esValida ? "VÁLIDA" : "INVÁLIDA")}");
-        Console.WriteLine();
-
-        if (esValida)
-            validas++;
-        else
-            invalidas++;
+        Console.WriteLine($"Error: {ex.Message}");
     }
-
-    Console.WriteLine("=== RESUMEN ===");
-    Console.WriteLine($"Válidas: {validas}");
-    Console.WriteLine($"Inválidas: {invalidas}");
-
-    totalInvalidas += invalidas;
-    totalValidas += validas;
 }
 
 string GenerarVisa()
@@ -329,7 +347,7 @@ string GenerarTarjeta(string marca)
     {
         "visa" => GenerarVisa(),
         "mastercard" => GenerarMastercard(),
-        "american express" => GenerarAmericanExpress(),
+        "american" => GenerarAmericanExpress(),
         "discover" => GenerarDiscover(),
         _ => ""
     };
